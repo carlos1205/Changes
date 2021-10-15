@@ -1,4 +1,4 @@
-<html>
+<html lang="pt-br">
     <head>
         <title>Change</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -9,12 +9,10 @@
     </head>
     <body>
         <?php 
-            //require_once("src/controller/index.php");
             $rota = explode('/', substr($_SERVER['REQUEST_URI'], 1));
             $recurso = empty($rota[0]) ? 'home' : $rota[0];
         
             $controlador = "src/controllers/$recurso.controller.php";
-            $acao = empty($rota[1]) ? "get" : $rota[1];
         
             if (file_exists($controlador)) {
                 require($controlador);
