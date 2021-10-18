@@ -9,6 +9,7 @@
     </head>
     <body>
         <?php 
+
             $rota = explode('/', substr($_SERVER['REQUEST_URI'], 1));
             $recurso = empty($rota[0]) ? 'home' : $rota[0];
         
