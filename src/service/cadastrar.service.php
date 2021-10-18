@@ -14,5 +14,7 @@
     }
 
     function userExists($email){
-        return false;
+        $query = "SELECT id FROM change_user WHERE email = '$email'";
+        $res = find($query);
+        return ($res -> num_rows > 0);
     }

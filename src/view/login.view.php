@@ -4,8 +4,8 @@
             <h1 class="blue-text text-darken-4" >Login</h1>
             <form class="row" action="login" method="POST">
                 <div class="input-field col s8 offset-s2">
-                    <input id="username" name="username" type="text" class="validate"/>
-                    <label for="username" >Username</label>
+                    <input id="email" name="email" type="email" class="validate"/>
+                    <label for="email" >Email</label>
                 </div>
                 <div class="input-field col s8 offset-s2">
                     <input id="password" name="password" type="password" class="validate"/>

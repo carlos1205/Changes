@@ -16,3 +16,9 @@
         return $db -> insert_id;
     }
 
+    function find($query){
+        $db = connect();
+        $res = $db -> query($query);
+        return $res;
+    }
+
