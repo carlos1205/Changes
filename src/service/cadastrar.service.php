@@ -9,6 +9,7 @@
         $res = insert($query);
 
         if(isset($res)){
+            $_SESSION['success_message'] = array("Usuário Cadastrado");
             header('Location: login');
         }
     }

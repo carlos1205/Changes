@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <section class="container pad-top">
     <div class="row">
         <div class="card col s6 offset-s3 center">
@@ -5,7 +8,7 @@
             <form class="row" action="cadastrar" method="POST">
                 <div class="input-field col s8 offset-s2">
                     <input id="username" name="username" type="text" class="validate"/>
-                    <label for="username" >Username</label>
+                    <label for="username" >Nome</label>
                 </div>
                 <div class="input-field col s8 offset-s2" autocomplete="off">
                     <input id="email" name="email" type="email" class="validate"/>
@@ -30,6 +33,21 @@
             <div class="row">
                 <a href="<?php echo isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '#' ; ?>" > Voltar</a>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6 offset-s3 center">
+            <?php 
+                if(isset($_SESSION['error_message'])):
+                    $arr = $_SESSION['error_message'];
+                    foreach($arr as $value):            
+            ?>
+                <p class="red-text"><?= $value?></p>
+            <?php 
+                    endforeach;
+                    unset($_SESSION['error_message']);
+                endif;
+            ?>
         </div>
     </div>
 </section>

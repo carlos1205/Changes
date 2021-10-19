@@ -31,8 +31,8 @@
                     </select>
                 </div>
                 <div class="input-field col s8 offset-s2">
-                    <input id="nome" name="itemNome" type="text" class="validate"/>
-                    <label for="nome" >Preço</label>
+                    <input id="preco" name="precoItem" type="number" class="validate" step="0.01" name="quantity" min="0.01" />
+                    <label for="preco" >Preço</label>
                 </div>
                 <button class="btn waves-effect waves-light col s8 offset-s2" type="submit" name="action">
                     Cadastrar

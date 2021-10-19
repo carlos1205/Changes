@@ -1,8 +1,10 @@
 <?php
     require_once('src/service/login.service.php');
-
+    session_start();
     if($_POST['email'] === "" || $_POST['password'] === ""){
-        echo "user don't exist!";
+        $arr = array("Nenhum campo pode ser vazio!"); 
+        $_SESSION['error_message'] = $arr;
+        header('Location: login');
     }else{
         $email = $_POST['email'];
         $pass = $_POST['password'];
@@ -10,7 +12,8 @@
             $login = new Login($email, md5($pass));
             $login -> logar();
         }catch(Exception $e){
-            echo $e -> getMessage();
+            $arr = array($e -> getMessage()); 
+            $_SESSION['error_message'] = $arr;
+            header('Location: login');
         }
-        
     }
