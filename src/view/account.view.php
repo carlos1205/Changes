@@ -31,7 +31,7 @@
                 </button>
             </form>
             <div class="row">
-                <a href="<?php echo isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '#' ; ?>" > Voltar</a>
+                <a href="login" > Voltar</a>
             </div>
         </div>
     </div>
