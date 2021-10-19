@@ -3,6 +3,6 @@
     isLogged();
     
     if($_SERVER['REQUEST_METHOD'] === 'GET'){
-        $page = 'form.item';
+        $page = 'chat';
         require_once('views.php');
     }
