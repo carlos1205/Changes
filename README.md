@@ -12,3 +12,7 @@ além disse é recomentadado também que os dados de acesso ao banco sejam coloc
 
 ### Bugs
 O php não está com o encode configurado corretamente. Então provavelmente caracteres especiais não serão reconhecidos adequadamente.
+
+### Creditos
+Esse projeto foi desenvolvido como parte da avaliação da disciplina de servidores web, da UTFPR - Campus Ponta Grossa. Sob a Orientação do Professor Diego Antunes.
+Aluno desenvolvedor: Carlos de Souza.
