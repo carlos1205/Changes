@@ -14,6 +14,18 @@
         }
     }
 
+    function alterar($id, $name, $description, $preco, $image, $type){
+        $imgName = salvaImagem($image);
+        $idUser = $_SESSION['user_id'];
+        $query = "UPDATE change_item SET name = ${name}, description = ${description}, price = ${preco}, image = ${imgName}, user_id = ${idUser}, type_id = ${type}) WHERE id = '${id}'";
+        $res = insert($query);
+
+        if(isset($res)){
+            $_SESSION['success_message'] = array("Item Alterado");
+            header('Location: my-itens');
+        }
+    }
+
     function salvaImagem($image){
         return salvar($image);
     }
@@ -25,6 +37,11 @@
 
     function getItemWithId($id){
         $query = "SELECT id, name, description, price, image, type_id FROM change_item WHERE id = '${id}'";
+        return find($query);
+    }
+
+    function getItens(){
+        $query = "SELECT change_item.id, change_item.name, change_item.description, change_item.price, change_item.image, change_type.name AS name_type, change_user.name AS name_user FROM change_item INNER JOIN change_type ON change_item.type_id = change_type.id INNER JOIN  change_user  ON  change_item.user_id = change_user.id";
         return find($query);
     }
     

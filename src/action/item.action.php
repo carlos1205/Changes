@@ -9,13 +9,22 @@
 
     if(validaCampos($name, $preco, $imagem)){
         try{
-            cadastrar($name, $description, $preco, $imagem, $type);
-        }catch(Exception $e){
+            if(isset($rota[1]) && !empty($rota[1])){
+                alterar($rota[1], $name, $description, $preco, $imagem, $type);
+            }else{
+                cadastrar($name, $description, $preco, $imagem, $type);
+            }
+        }catch(Exception $ex){
             $arr = array($ex -> getMessage());
             $_SESSION['error_message'] = $arr;
         }
     }else{
-        header('Location: item');
+        if(isset($rota[1]) && !empty($rota[1])){
+            $url = $rota[1];
+            header("Location: item/$url");
+        }else{
+            header('Location: item');
+        }
     }
 
     function validaCampos($name, $preco, $imagem){

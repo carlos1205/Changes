@@ -6,6 +6,7 @@
     $itens = getItemWithId($_SESSION['id_item']);
     $itens = mysqli_fetch_array($itens);
     $types = getTypes();
+    unset($_SESSION['id_item']);
 ?>
 <section>
 <div class="row">
@@ -39,7 +40,7 @@
     <div class="row">
         <div class="card col s6 offset-s3 center">
             <h2 class="red-text text-lighten-2" >Alterar Item</h2>
-            <form class="row" action="item" method="PUT" enctype="multipart/form-data">
+            <form class="row" action="http://<?=$_SERVER['SERVER_NAME']?>/item/<?= $itens['id']?>" method="POST" enctype="multipart/form-data">
                 <div class="input-field col s8 offset-s2">
                     <input id="nome" name="itemNome" type="text" class="validate" value="<?= $itens['name']?>"/>
                 </div>
