@@ -5,6 +5,34 @@
     $itens = getItensWithOwner($_SESSION['user_id']);
 ?>
 <section class="container">
+<div class="row">
+        <div class="col s6 offset-s3 center">
+            <?php 
+                if(isset($_SESSION['error_message'])):
+                    $arr = $_SESSION['error_message'];
+                    foreach($arr as $value):            
+            ?>
+                <p class="red-text"><?= $value?></p>
+            <?php 
+                    endforeach;
+                    unset($_SESSION['error_message']);
+                endif;
+            ?>
+        </div>
+        <div class="col s6 offset-s3 center">
+            <?php 
+                if(isset($_SESSION['success_message'])):
+                    $arr = $_SESSION['success_message'];
+                    foreach($arr as $value):            
+            ?>
+                    <p class="green-text"><?= $value?></p>
+            <?php 
+                    endforeach;
+                    unset($_SESSION['success_message']);
+                endif;
+            ?>
+        </div>
+    </div>
     <h2 class="red-text text-lighten-2">Seus Itens:</h2>
     <div id="itens" class="col s12 m7">
         <?php while($row = mysqli_fetch_array($itens)): ?>
@@ -21,22 +49,10 @@
                     </div>
                     <div class="card-action">
                         <a class="waves-effect waves-light btn" href="item/<?= $row['id']?>">Editar</a>
-                        <a class="waves-effect waves-light red btn modal-trigger" href="#modal1">Apagar</a>
+                        <a class="waves-effect waves-light red btn" href="item-delete/<?= $row['id']?>">Apagar</a>
                     </div>
                 </div>
             </div>
         <?php endwhile;?>
     </div>
 </section>
-
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <h4>Confirmar</h4>
-        <p>Essa alteração é irreversível deseja continuar?</p>
-    </div>
-    <div class="modal-footer">
-        <a href="" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
-        <a href="#" class="modal-close waves-effect waves-green btn-flat">Confirmar</a>
-    </div>
-</div>

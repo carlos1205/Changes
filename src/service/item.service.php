@@ -45,3 +45,27 @@
         return find($query);
     }
     
+    function dropImage($image){
+        drop($image);
+    }
+
+    function existsImage($image){
+        return exists($image);
+    }
+
+    function deleteItem($id){
+        $owner = $_SESSION['user_id'];
+        $query = "SELECT id, name, description, price, image, type_id FROM change_item WHERE id = '${id}' AND user_id = '${owner}'";
+        $item = find($query);
+        $item = mysqli_fetch_array($item);
+        if(existsImage($item['image'])){
+            dropImage($item['image']);
+        }
+
+        $query = "DELETE FROM change_item WHERE id = '${id}'";
+        delete($query);
+
+        $_SESSION['success_message'] = array("Item Deletado");
+        $location = "http://".$_SERVER['SERVER_NAME']."/my-itens";
+        header("Location: $location");
+    }

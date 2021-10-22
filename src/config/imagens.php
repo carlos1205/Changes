@@ -15,3 +15,13 @@
     function destiny(){
         return $_SERVER['DOCUMENT_ROOT']."/public/image/";
     }
+
+    function drop($image){
+        $file = destiny().basename($image);
+        unlink($file);
+    }
+
+    function exists($image){
+        $file = destiny().basename($image);
+        return file_exists($file);
+    }

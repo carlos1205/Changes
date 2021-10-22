@@ -21,3 +21,7 @@
         return $db -> query($query);
     }
 
+    function delete($query){
+        $db = connect();
+        $db -> query($query);
+    }
