@@ -18,9 +18,13 @@
         return salvar($image);
     }
 
-    function getItensWithId($id){
+    function getItensWithOwner($id){
         $query = "SELECT change_item.id, change_item.name, change_item.description, change_item.price, change_item.image, change_type.name AS name_type FROM change_item INNER JOIN  change_type  ON  change_item.type_id = change_type.id WHERE user_id = '${id}'";
         return find($query);
     }
 
+    function getItemWithId($id){
+        $query = "SELECT id, name, description, price, image, type_id FROM change_item WHERE id = '${id}'";
+        return find($query);
+    }
     

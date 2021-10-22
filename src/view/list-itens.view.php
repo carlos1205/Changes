@@ -2,10 +2,10 @@
     require_once "header.php";
     require_once "src/service/item.service.php";
 
-    $itens = getItensWithId($_SESSION['user_id']);
+    $itens = getItensWithOwner($_SESSION['user_id']);
 ?>
 <section class="container">
-    <h1 class="pink-text">Seus Itens:</h1>
+    <h2 class="red-text text-lighten-2">Seus Itens:</h2>
     <div id="itens" class="col s12 m7">
         <?php while($row = mysqli_fetch_array($itens)): ?>
             <div class="card horizontal">

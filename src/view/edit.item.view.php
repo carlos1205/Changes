@@ -1,7 +1,10 @@
 <?php 
     require_once "header.php";
+    require_once "src/service/item.service.php";
     require_once "src/service/type.service.php";
 
+    $itens = getItemWithId($_SESSION['id_item']);
+    $itens = mysqli_fetch_array($itens);
     $types = getTypes();
 ?>
 <section>
@@ -35,41 +38,38 @@
     </div>
     <div class="row">
         <div class="card col s6 offset-s3 center">
-            <h1 class="blue-text text-darken-4" >Cadastrar Item</h1>
-            <form class="row" action="item" method="POST" enctype="multipart/form-data">
+            <h2 class="red-text text-lighten-2" >Alterar Item</h2>
+            <form class="row" action="item" method="PUT" enctype="multipart/form-data">
                 <div class="input-field col s8 offset-s2">
-                    <input id="nome" name="itemNome" type="text" class="validate"/>
-                    <label for="nome" >Nome do Item</label>
+                    <input id="nome" name="itemNome" type="text" class="validate" value="<?= $itens['name']?>"/>
                 </div>
                 <div class="input-field col s8 offset-s2">
-                    <textarea id="descricao" name="description" class="materialize-textarea"></textarea>
-                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" name="description" class="materialize-textarea"><?= $itens['description']?></textarea>
                 </div>
                 <div class="col s8 offset-s2">
                     <div id="type-item"> 
                         <?php while($row = mysqli_fetch_array($types)): ?>
                             <label>
-                                <input name="type" type="radio" value="<?= $row['id']?>" checked />
+                                <input name="type" type="radio" value="<?= $row['id']?>" <?php if($itens['type_id'] == $row['id']) echo "checked"; ?> />
                                 <span><?= utf8_encode($row['name'])?></span>
                             </label>
                         <?php endwhile; ?>  
                     </div>
                 </div>
                 <div class="input-field col s8 offset-s2">
-                    <input id="preco" name="precoItem" type="number" class="validate" step="0.01" name="quantity" min="0.01" />
-                    <label for="preco" >Preço</label>
+                    <input id="preco" name="precoItem" type="number" value="<?= $itens["price"]?>" class="validate" step="0.01" name="quantity" min="0.01" />
                 </div>
                 <div class="file-field input-field col s8 offset-s2">
                     <div class="btn">
                         <span>File</span>
-                        <input type="file" name="image" accept="image/png, image/jpeg">
+                        <input type="file" value="http://<?=$_SERVER['SERVER_NAME']?>/public/image/<?= $itens['image']?>" name="image" accept="image/png, image/jpeg">
                     </div>
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="Fotos">
+                        <input class="file-path validate" type="text" value="<?= $itens["image"]?>" placeholder="Fotos">
                     </div>
                 </div>
                 <button class="btn waves-effect waves-light col s8 offset-s2" type="submit" name="action">
-                    Cadastrar
+                    Alterar
                 </button>
             </form>
         </div>

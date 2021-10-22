@@ -26,7 +26,7 @@
         ?>
     </body>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo basename(__DIR__);?>/assets/js/materialize.min.js"></script>    
-    <script src="<?php echo basename(__DIR__);?>/assets/js/select.js" ></script>
-    <script src="<?php echo basename(__DIR__);?>/assets/js/custom.js" ></script>
+    <script type="text/javascript" src="http://change.test/public/assets/js/materialize.min.js"></script>    
+    <script src="http://change.test/public/assets/js/select.js" ></script>
+    <script src="http://change.test/public/assets/js/custom.js" ></script>
 </html>

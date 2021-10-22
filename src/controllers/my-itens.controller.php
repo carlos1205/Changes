@@ -1,6 +1,6 @@
 <?php
     require_once("src/middlewares/access.middleware.php");
-    isLogged();    
+    isLogged();
 
     if($_SERVER['REQUEST_METHOD'] === 'GET'){
         $page = 'list-itens';

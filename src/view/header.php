@@ -1,7 +1,7 @@
 <header>
     <nav>
         <div class="nav-wrapper container">
-            <a href="home" class="brand-logo">CHANGE</a>
+            <a href="http://<?=$_SERVER['SERVER_NAME']?>/home" class="brand-logo">CHANGE</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="http://<?=$_SERVER['SERVER_NAME']?>/changes">Encontrar Item</a></li>
                 <li><a href="http://<?=$_SERVER['SERVER_NAME']?>/item">Change Item</a></li>
