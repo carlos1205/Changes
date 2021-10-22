@@ -6,7 +6,7 @@
             throw new Exception('Erro na conexão');
         }
 
-        $db -> set_charset("utf-8");
+        $db -> set_charset('utf-8');
         return $db;
     }
 
@@ -18,7 +18,6 @@
 
     function find($query){
         $db = connect();
-        $res = $db -> query($query);
-        return $res;
+        return $db -> query($query);
     }
 

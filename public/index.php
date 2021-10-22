@@ -1,5 +1,8 @@
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
     <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Change</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -9,7 +12,7 @@
     </head>
     <body>
         <?php 
-
+            ini_set('default_charset','UTF-8');
             $rota = explode('/', substr($_SERVER['REQUEST_URI'], 1));
             $recurso = empty($rota[0]) ? 'home' : $rota[0];
         
