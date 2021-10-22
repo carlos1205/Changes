@@ -7,8 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="<?php echo basename(__DIR__);?>/assets/css/materialize.min.css"  media="screen,projection"/>
-        <link type="text/css" rel="stylesheet" href="<?php echo basename(__DIR__);?>/assets/css/custom.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="http://<?=$_SERVER['SERVER_NAME']?>/public/assets/css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="http://<?=$_SERVER['SERVER_NAME']?>/public/assets/css/custom.css"  media="screen,projection"/>
     </head>
     <body>
         <?php 

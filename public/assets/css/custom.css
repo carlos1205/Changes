@@ -1,3 +1,19 @@
 .pad-top {
     padding-top: 2rem;
 }
+
+#itens .card.horizontal .card-image{
+    max-width: 40%;
+}
+
+#itens .card.horizontal .card-action{
+    text-align-last: justify;
+}
+
+#itens .price{
+    font-weight: 600;
+}
+
+#itens .type{
+    font-weight: 600;
+}

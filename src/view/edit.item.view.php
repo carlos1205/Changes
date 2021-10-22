@@ -1,5 +1,5 @@
 <?php 
-    require_once "src/view/header.php";
+    require_once "header.php";
     require_once "src/service/type.service.php";
 
     $types = getTypes();
