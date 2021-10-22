@@ -21,10 +21,22 @@
                     </div>
                     <div class="card-action">
                         <a class="waves-effect waves-light btn" href="item/<?= $row['id']?>">Editar</a>
-                        <a class="waves-effect waves-light red btn" href="#" >Apagar</a>
+                        <a class="waves-effect waves-light red btn modal-trigger" href="#modal1">Apagar</a>
                     </div>
                 </div>
             </div>
         <?php endwhile;?>
     </div>
 </section>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Confirmar</h4>
+        <p>Essa alteração é irreversível deseja continuar?</p>
+    </div>
+    <div class="modal-footer">
+        <a href="" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" class="modal-close waves-effect waves-green btn-flat">Confirmar</a>
+    </div>
+</div>
