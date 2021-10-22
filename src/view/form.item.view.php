@@ -5,6 +5,34 @@
     $types = getTypes();
 ?>
 <section>
+<div class="row">
+        <div class="col s6 offset-s3 center">
+            <?php 
+                if(isset($_SESSION['error_message'])):
+                    $arr = $_SESSION['error_message'];
+                    foreach($arr as $value):            
+            ?>
+                <p class="red-text"><?= $value?></p>
+            <?php 
+                    endforeach;
+                    unset($_SESSION['error_message']);
+                endif;
+            ?>
+        </div>
+        <div class="col s6 offset-s3 center">
+            <?php 
+                if(isset($_SESSION['success_message'])):
+                    $arr = $_SESSION['success_message'];
+                    foreach($arr as $value):            
+            ?>
+                    <p class="green-text"><?= $value?></p>
+            <?php 
+                    endforeach;
+                    unset($_SESSION['success_message']);
+                endif;
+            ?>
+        </div>
+    </div>
     <div class="row">
         <div class="card col s6 offset-s3 center">
             <h1 class="blue-text text-darken-4" >Cadastrar Item</h1>
@@ -44,21 +72,6 @@
                     Cadastrar
                 </button>
             </form>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col s6 offset-s3 center">
-            <?php 
-                if(isset($_SESSION['error_message'])):
-                    $arr = $_SESSION['error_message'];
-                    foreach($arr as $value):            
-            ?>
-                <p class="red-text"><?= $value?></p>
-            <?php 
-                    endforeach;
-                    unset($_SESSION['error_message']);
-                endif;
-            ?>
         </div>
     </div>
 </section>

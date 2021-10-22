@@ -6,7 +6,7 @@
         $uploadfile = destiny().basename($nome_final);
 
         if (move_uploaded_file($imagem['tmp_name'], $uploadfile)) {
-            return;
+            return $nome_final;
         } else {
             throw new Exception("Não foi possível fazer o upload da imagem!");
         }
