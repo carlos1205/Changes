@@ -15,7 +15,10 @@
     }
 
     function alterar($id, $name, $description, $preco, $image, $type){
-        $imgName = salvaImagem($image);
+        $imgName = $image;
+        if(!existsImage($image)){
+            $imgName = salvaImagem($image);
+        }
         $idUser = $_SESSION['user_id'];
         $query = "UPDATE change_item SET name = ${name}, description = ${description}, price = ${preco}, image = ${imgName}, user_id = ${idUser}, type_id = ${type}) WHERE id = '${id}'";
         $res = insert($query);
