@@ -16,7 +16,6 @@
 
             if($res -> num_rows === 1){
                 $row = $res -> fetch_assoc();
-                session_start();
                 $_SESSION["login"] = 'true';
                 $_SESSION["user_id"] = $row['id'];
                 header('Location: home');

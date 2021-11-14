@@ -1,5 +1,13 @@
 {
     "name": "app/change",
     "description": "change app",
-    "require": {}
+    "require": {
+        "nesbot/carbon": "^1.39",
+        "pecee/simple-router": "^3.7"
+    },
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    }
 }
