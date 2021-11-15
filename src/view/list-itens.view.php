@@ -1,8 +1,6 @@
 <?php 
     require_once "header.php";
-    require_once "src/service/item.service.php";
-
-    $itens = getItensWithOwner($_SESSION['user_id']);
+    $itens = ItemService::getItensWithOwner($_SESSION['user_id']);
 ?>
 <section class="container">
 <div class="row">
@@ -48,7 +46,7 @@
                         <p class="cyan-text price">R$ <?= str_replace('.', ',', $row['price']);?></p>
                     </div>
                     <div class="card-action">
-                        <a class="waves-effect waves-light btn" href="item/<?= $row['id']?>">Editar</a>
+                        <a class="waves-effect waves-light btn" href="item/1/edit">Editar</a>
                         <a class="waves-effect waves-light red btn" href="item-delete/<?= $row['id']?>">Apagar</a>
                     </div>
                 </div>

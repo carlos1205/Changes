@@ -1,8 +1,7 @@
 <?php 
     require_once "header.php";
-    require_once "src/service/item.service.php";
 
-    $itens = getItens($_SESSION['user_id']);
+    $itens = ItemService::getItens($_SESSION['user_id']);
 ?>
 <section class="container">
     <div id="itens" class="col s12 m7">

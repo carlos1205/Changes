@@ -1,6 +1,4 @@
 <?php
-    require_once "src/config/connection.php";
-
     class Login {
         private $email;
         private $password;
@@ -12,7 +10,7 @@
 
         function logar(){
             $query = "SELECT id FROM change_user WHERE email = '". $this -> email ."' AND pass = '". $this -> password ."'";
-            $res = find($query);
+            $res = Connection::find($query);
 
             if($res -> num_rows === 1){
                 $row = $res -> fetch_assoc();

@@ -1,7 +1,9 @@
 <?php
     class LoginAction{
         public static function logar(){
-            session_start();
+            if (session_status() === PHP_SESSION_NONE)
+                session_start();
+
             if($_POST['email'] === "" || $_POST['password'] === ""){
                 $arr = array("Nenhum campo pode ser vazio!"); 
                 $_SESSION['error_message'] = $arr;
@@ -21,7 +23,9 @@
         }
 
         public static function logout(){
-            session_start();
+            if (session_status() === PHP_SESSION_NONE)
+                session_start();
+                
             $_SESSION["login"] = 'false';
             session_destroy();
             header('Location: login');

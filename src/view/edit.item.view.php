@@ -1,11 +1,9 @@
 <?php 
     require_once "header.php";
-    require_once "src/service/item.service.php";
-    require_once "src/service/type.service.php";
 
-    $itens = getItemWithId($_SESSION['id_item']);
+    $itens = ItemService::getItemWithId($_SESSION['id_item']);
     $itens = mysqli_fetch_array($itens);
-    $types = getTypes();
+    $types = TypeService::getTypes();
     unset($_SESSION['id_item']);
 ?>
 <section>

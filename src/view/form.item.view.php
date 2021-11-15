@@ -2,7 +2,7 @@
     require_once "src/view/header.php";
     require_once "src/service/type.service.php";
 
-    $types = getTypes();
+    $types = TypeService::getTypes();
 ?>
 <section>
 <div class="row">
