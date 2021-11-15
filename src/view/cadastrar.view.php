@@ -1,11 +1,12 @@
 <?php 
-    session_start();
+    if (session_status() === PHP_SESSION_NONE)
+        session_start();
 ?>
 <section class="container pad-top">
     <div class="row">
         <div class="card col s6 offset-s3 center">
             <h1 class="blue-text text-darken-4" >Cadastrar</h1>
-            <form class="row" action="cadastrar" method="POST">
+            <form class="row" action="cadastrar" method="post">
                 <div class="input-field col s8 offset-s2">
                     <input id="username" name="username" type="text" class="validate"/>
                     <label for="username" >Nome</label>

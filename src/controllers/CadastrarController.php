@@ -7,6 +7,7 @@ class CadastrarController{
     }
 
     public function postIndex(){
-        $this->view('login');
+        $cadastro = new CadastrarAction($_POST['username'], $_POST['email'], $_POST['confirmEmail'], $_POST['password'], $_POST['confirmPassword']);
+        $cadastro -> cadastrar();
     }
 }
