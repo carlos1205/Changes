@@ -46,8 +46,8 @@
                         <p class="cyan-text price">R$ <?= str_replace('.', ',', $row['price']);?></p>
                     </div>
                     <div class="card-action">
-                        <a class="waves-effect waves-light btn" href="item/1/edit">Editar</a>
-                        <a class="waves-effect waves-light red btn" href="item-delete/<?= $row['id']?>">Apagar</a>
+                        <a class="waves-effect waves-light btn" href="item/<?= $row['id']?>/editar">Editar</a>
+                        <a class="waves-effect waves-light red btn" href="item/<?= $row['id']?>/deletar">Apagar</a>
                     </div>
                 </div>
             </div>

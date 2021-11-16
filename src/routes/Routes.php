@@ -1,19 +1,25 @@
-<?php
-    use Pecee\SimpleRouter\SimpleRouter as Router;
+    <?php
+        use Pecee\SimpleRouter\SimpleRouter as Router;
 
-    Router::group(['middleware' => Auth::class], function(){
-        Router::get('/', 'HomeController@index');
-        Router::get('/home', 'HomeController@index');
+        Router::group(['middleware' => Auth::class], function(){
+            Router::get('/', 'HomeController@index');
+            Router::get('/home', 'HomeController@index');
 
-        Router::group(['prefix' => 'item'], function(){
-            Router::get('/','ItemController@getIndex');
-            Router::get('/create', 'ItemController@getCreate');
-            Router::get('/{id}/edit', 'ItemController@edit');
+            Router::group(['prefix' => 'item'], function(){
+                Router::get('/','ItemController@getIndex');
+
+                Router::post('/create', 'ItemController@create');
+                Router::get('/criar', 'ItemController@getCreate');
+
+                Router::post('/{id}/edit', 'ItemController@update');
+                Router::get('/{id}/editar', 'ItemController@edit');
+
+                Router::get('/{id}/deletar', 'ItemController@delete');
+            });
+
+            Router::get('/my-itens', 'ItemController@getMyItens');
+            Router::get('/logout', 'LoginController@logout');
         });
 
-        Router::get('/my-itens', 'ItemController@getMyItens');
-        Router::get('/logout', 'LoginController@logout');
-    });
-
-    Router::controller('/login', LoginController::class);
-    Router::controller('/cadastrar', CadastrarController::class);
+        Router::controller('/login', LoginController::class);
+        Router::controller('/cadastrar', CadastrarController::class);

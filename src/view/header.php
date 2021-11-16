@@ -4,7 +4,7 @@
             <a href="http://<?=$_SERVER['SERVER_NAME']?>/home" class="brand-logo">CHANGE</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="http://<?=$_SERVER['SERVER_NAME']?>/item">Encontrar Item</a></li>
-                <li><a href="http://<?=$_SERVER['SERVER_NAME']?>/item/create">Change Item</a></li>
+                <li><a href="http://<?=$_SERVER['SERVER_NAME']?>/item/criar">Change Item</a></li>
                 <li><a href="http://<?=$_SERVER['SERVER_NAME']?>/chat">Chat</a></li>
                 <li>
                     <a class='dropdown-trigger  waves-effect waves-light btn-small' href='#' data-target='dropdown1'>Perfil</a>

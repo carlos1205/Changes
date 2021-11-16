@@ -1,5 +1,4 @@
 <?php
-
     function salvar($imagem){
         $arquivo_tmp = $imagem['tmp_name'];
         $nome_final = time().'.jpg';

@@ -1,7 +1,5 @@
 <?php 
     require_once "src/view/header.php";
-    require_once "src/service/type.service.php";
-
     $types = TypeService::getTypes();
 ?>
 <section>
@@ -36,7 +34,7 @@
     <div class="row">
         <div class="card col s6 offset-s3 center">
             <h2 class="red-text text-lighten-2" >Cadastrar Item</h2>
-            <form class="row" action="item" method="POST" enctype="multipart/form-data">
+            <form class="row" action="create" method="POST" enctype="multipart/form-data">
                 <div class="input-field col s8 offset-s2">
                     <input id="nome" name="itemNome" type="text" class="validate"/>
                     <label for="nome" >Nome do Item</label>
