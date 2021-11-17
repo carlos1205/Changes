@@ -10,12 +10,14 @@
 
         function logar(){
             $query = "SELECT id FROM change_user WHERE email = '". $this -> email ."' AND pass = '". $this -> password ."'";
-            $res = Connection::find($query);
+            $db = Repository::getInstance();
+            $res = $db -> execute($query);
+            $count = $res -> fetchAll();
 
-            if($res -> num_rows === 1){
-                $row = $res -> fetch_assoc();
+            if(sizeof($count) === 1){
+                $user = $res -> fetchObject("User");
                 $_SESSION["login"] = 'true';
-                $_SESSION["user_id"] = $row['id'];
+                $_SESSION["user_id"] = $count[0]['id'];
                 header('Location: home');
             }else{
                 throw new Exception("Email ou senha está errado!");
