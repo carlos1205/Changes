@@ -1,6 +1,6 @@
 <?php 
     require_once "header.php";
-    $itens = ItemService::getItensWithOwner($_SESSION['user_id']);
+    $itens = ItemService::getInstance() -> getItensWithOwner($_SESSION['user_id']);
 ?>
 <section class="container">
 <div class="row">
@@ -33,24 +33,24 @@
     </div>
     <h2 class="red-text text-lighten-2">Seus Itens:</h2>
     <div id="itens" class="col s12 m7">
-        <?php while($row = mysqli_fetch_array($itens)): ?>
+        <?php foreach($itens as $item): ?>
             <div class="card horizontal">
                 <div class="card-image">
-                    <img src="public/image/<?= $row['image']?>">
+                    <img src="public/image/<?= $item -> getImage()?>">
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
-                        <h5><?= $row['name']?></h5>
-                        <p><?= $row['description']?></p>
-                        <p class="type">Tipo: <?= utf8_encode($row['name_type'])?></p>
-                        <p class="cyan-text price">R$ <?= str_replace('.', ',', $row['price']);?></p>
+                        <h5><?= $item -> getName()?></h5>
+                        <p><?= $item -> getDescription()?></p>
+                        <p class="type">Tipo: <?= utf8_encode($item -> getType())?></p>
+                        <p class="cyan-text price">R$ <?= str_replace('.', ',',$item -> getPrice());?></p>
                     </div>
                     <div class="card-action">
-                        <a class="waves-effect waves-light btn" href="item/<?= $row['id']?>/editar">Editar</a>
-                        <a class="waves-effect waves-light red btn" href="item/<?= $row['id']?>/deletar">Apagar</a>
+                        <a class="waves-effect waves-light btn" href="item/<?= $item -> getId()?>/editar">Editar</a>
+                        <a class="waves-effect waves-light red btn" href="item/<?= $item -> getId()?>/deletar">Apagar</a>
                     </div>
                 </div>
             </div>
-        <?php endwhile;?>
+        <?php endforeach;?>
     </div>
 </section>

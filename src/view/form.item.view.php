@@ -45,12 +45,12 @@
                 </div>
                 <div class="col s8 offset-s2">
                     <div id="type-item"> 
-                        <?php while($row = mysqli_fetch_array($types)): ?>
+                        <?php foreach($types as $type): ?>
                             <label>
-                                <input name="type" type="radio" value="<?= $row['id']?>" checked />
-                                <span><?= utf8_encode($row['name'])?></span>
+                                <input name="type" type="radio" value="<?= $type -> getId()?>" checked />
+                                <span><?= utf8_encode($type -> getName())?></span>
                             </label>
-                        <?php endwhile; ?>  
+                        <?php endforeach; ?>  
                     </div>
                 </div>
                 <div class="input-field col s8 offset-s2">

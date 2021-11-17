@@ -15,7 +15,6 @@
             $count = $res -> fetchAll();
 
             if(sizeof($count) === 1){
-                $user = $res -> fetchObject("User");
                 $_SESSION["login"] = 'true';
                 $_SESSION["user_id"] = $count[0]['id'];
                 header('Location: home');

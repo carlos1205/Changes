@@ -1,8 +1,7 @@
 <?php 
     require_once "header.php";
 
-    $itens = ItemService::getItemWithId($_SESSION['id_item']);
-    $itens = mysqli_fetch_array($itens);
+    $item = ItemService::getInstance() -> getItemWithId($_SESSION['id_item']);
     $types = TypeService::getTypes();
     unset($_SESSION['id_item']);
 ?>
@@ -38,33 +37,33 @@
     <div class="row">
         <div class="card col s6 offset-s3 center">
             <h2 class="red-text text-lighten-2" >Alterar Item</h2>
-            <form class="row" action="http://<?=$_SERVER['SERVER_NAME']?>/item/<?= $itens['id']?>/edit" method="POST" enctype="multipart/form-data">
+            <form class="row" action="http://<?=$_SERVER['SERVER_NAME']?>/item/<?= $item -> getId()?>/edit" method="POST" enctype="multipart/form-data">
                 <div class="input-field col s8 offset-s2">
-                    <input id="nome" name="itemNome" type="text" class="validate" value="<?= $itens['name']?>"/>
+                    <input id="nome" name="itemNome" type="text" value="<?= $item -> getName()?>"/>
                 </div>
                 <div class="input-field col s8 offset-s2">
-                    <textarea id="descricao" name="description" class="materialize-textarea"><?= $itens['description']?></textarea>
+                    <textarea id="descricao" name="description" class="materialize-textarea"><?= $item -> getDescription()?></textarea>
                 </div>
                 <div class="col s8 offset-s2">
-                    <div id="type-item"> 
-                        <?php while($row = mysqli_fetch_array($types)): ?>
+                    <div id="type-item">
+                        <?php foreach($types as $type): ?>
                             <label>
-                                <input name="type" type="radio" value="<?= $row['id']?>" <?php if($itens['type_id'] == $row['id']) echo "checked"; ?> />
-                                <span><?= utf8_encode($row['name'])?></span>
+                                <input name="type" type="radio" value="<?= $type -> getId()?>" <?php if($item -> getType() == $type -> getId()) echo "checked"; ?> />
+                                <span><?= utf8_encode($type -> getName())?></span>
                             </label>
-                        <?php endwhile; ?>  
+                        <?php endforeach; ?>
                     </div>
                 </div>
                 <div class="input-field col s8 offset-s2">
-                    <input id="preco" name="precoItem" type="number" value="<?= $itens["price"]?>" class="validate" step="0.01" name="quantity" min="0.01" />
+                    <input id="preco" name="precoItem" type="number" value="<?= $item -> getPrice()?>"step="0.01" name="quantity" min="0.01" />
                 </div>
                 <div class="file-field input-field col s8 offset-s2">
                     <div class="btn">
                         <span>File</span>
-                        <input type="file" value="http://<?=$_SERVER['SERVER_NAME']?>/public/image/<?= $itens['image']?>" name="image" accept="image/png, image/jpeg">
+                        <input type="file" value="http://<?=$_SERVER['SERVER_NAME']?>/public/image/<?= $item -> getImage()?>" name="image" accept="image/png, image/jpeg">
                     </div>
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" value="<?= $itens["image"]?>" placeholder="Fotos">
+                        <input class="file-path" type="text" value="<?= $item -> getImage()?>" placeholder="Fotos">
                     </div>
                 </div>
                 <button class="btn waves-effect waves-light col s8 offset-s2" type="submit" name="action">
