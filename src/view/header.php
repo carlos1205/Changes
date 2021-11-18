@@ -15,7 +15,16 @@
                         <li><a href="http://<?=$_SERVER['SERVER_NAME']?>/logout">LOG OUT</a></li>
                     </ul>
                 </li>
-                <li><a href="#"><i class="material-icons">search</i></a></li>
+
+                <li>
+                    <form action="http://<?=$_SERVER['SERVER_NAME']?>/search"method="post">
+                        <div class="input-field">
+                        <input id="search" type="search" name="search" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                        </div>
+                    </form>
+                </li>
             </ul>
         </div>
     </nav>

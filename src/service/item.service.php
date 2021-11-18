@@ -73,6 +73,17 @@
             }
             return $arr;
         }
+
+        public function search($word){
+            $query = "SELECT change_item.id, change_item.name, change_item.description, change_item.price, change_item.image, change_type.name AS name_type, change_user.name AS name_user FROM change_item INNER JOIN change_type ON change_item.type_id = change_type.id INNER JOIN  change_user  ON  change_item.user_id = change_user.id WHERE change_item.name LIKE '%$word%'  ORDER BY change_item.id DESC";
+            $arr = [];
+            $response = self::execQuery($query);
+
+            while($item = $response -> fetchObject('Item')){
+                array_push($arr, $item);
+            }
+            return $arr;
+        }
     
         public function deleteItem($id){
             $owner = $_SESSION['user_id'];

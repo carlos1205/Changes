@@ -17,6 +17,7 @@
                 Router::get('/{id}/deletar', 'ItemController@delete');
             });
 
+            Router::post('/search', 'ItemController@search');
             Router::get('/my-itens', 'ItemController@getMyItens');
             Router::get('/logout', 'LoginController@logout');
         });

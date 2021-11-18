@@ -25,6 +25,10 @@ class ItemController{
         $item -> insert();
     }
 
+    public function search(){
+        $this->view('Search', [$_POST['search'], ItemService::getInstance() -> search($_POST['search'])]);
+    }
+
     public function update($id){
         $item = new ItemAction($id, $_POST['itemNome'],  $_POST['description'], $_POST['precoItem'], $_FILES['image'], $_POST['type']);
         $item -> update();
