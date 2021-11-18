@@ -5,7 +5,6 @@
     
             $pass = md5($password);
             $query = "INSERT INTO change_user(name, email, pass) VALUES ('${name}', '${email}', '${pass}')";
-            //$res = Connection::insert($query);
             $db = Repository::getInstance();
             $res = $db -> execute($query);
 
