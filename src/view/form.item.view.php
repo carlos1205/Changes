@@ -1,6 +1,6 @@
 <?php 
     require_once "src/view/header.php";
-    $types = TypeService::getTypes();
+    $types = TypeService::getInstance() -> getTypes();
 ?>
 <section>
 <div class="row">

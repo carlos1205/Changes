@@ -1,7 +1,7 @@
 <?php 
     require_once "header.php";
 
-    $itens = ItemService::getInstance() -> getItens($_SESSION['user_id']);
+    $itens =ItemService::getInstance() -> getItens($_SESSION['user_id']);
 ?>
 <section class="container">
     <div id="itens" class="col s12 m7">
@@ -15,6 +15,7 @@
                         <h5><?= $item -> getName()?></h5>
                         <p><?= $item -> getDescription()?></p>
                         <p class="type">Tipo: <?= utf8_encode($item -> getType())?></p>
+                        <?php echo print_r($item -> getType()); ?>
                         <p class="cyan-text price">R$ <?= str_replace('.', ',',$item -> getPrice());?></p>
                     </div>
                     <div class="card-action">

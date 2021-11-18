@@ -2,7 +2,7 @@
     require_once "header.php";
 
     $item = ItemService::getInstance() -> getItemWithId($_SESSION['id_item']);
-    $types = TypeService::getTypes();
+    $types = TypeService::getInstance() -> getTypes();
     unset($_SESSION['id_item']);
 ?>
 <section>
