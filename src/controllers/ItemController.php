@@ -3,20 +3,21 @@ class ItemController{
     use ViewTrait;
 
     public function getIndex(){
-        $this->view('changes');
+        $this->view('changes', ItemService::getInstance() -> getItens($_SESSION['user_id']));
     }
 
     public function getMyItens(){
-        $this->view('list-itens');
+        $this->view('list-itens', ItemService::getInstance() -> getItensWithOwner($_SESSION['user_id']));
     }
 
     public function edit($id){
         $_SESSION['id_item'] = $id;
-        $this->view('edit.item');
+        $this->view('edit.item', [ItemService::getInstance() -> getItemWithId($_SESSION['id_item']), TypeService::getInstance() -> getTypes()]);
+        unset($_SESSION['id_item']);
     }
     
     public function getCreate(){
-        $this->view('form.item');
+        $this->view('form.item', TypeService::getInstance() -> getTypes());
     }
 
     public function create(){

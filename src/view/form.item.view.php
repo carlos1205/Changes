@@ -1,9 +1,6 @@
-<?php 
-    require_once "src/view/header.php";
-    $types = TypeService::getInstance() -> getTypes();
-?>
+<?php require_once "src/view/header.php";?>
 <section>
-<div class="row">
+    <div class="row">
         <div class="col s6 offset-s3 center">
             <?php 
                 if(isset($_SESSION['error_message'])):
@@ -33,7 +30,7 @@
     </div>
     <div class="row">
         <div class="card col s6 offset-s3 center">
-            <h2 class="red-text text-lighten-2" >Cadastrar Item</h2>
+            <h2 class="red-text text-lighten-2" >Cadastrar</h2>
             <form class="row" action="create" method="POST" enctype="multipart/form-data">
                 <div class="input-field col s8 offset-s2">
                     <input id="nome" name="itemNome" type="text" class="validate"/>
@@ -45,7 +42,7 @@
                 </div>
                 <div class="col s8 offset-s2">
                     <div id="type-item"> 
-                        <?php foreach($types as $type): ?>
+                        <?php foreach($data as $type): ?>
                             <label>
                                 <input name="type" type="radio" value="<?= $type -> getId()?>" checked />
                                 <span><?= utf8_encode($type -> getName())?></span>

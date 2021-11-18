@@ -1,11 +1,9 @@
 <?php 
     require_once "header.php";
-
-    $itens =ItemService::getInstance() -> getItens($_SESSION['user_id']);
 ?>
 <section class="container">
     <div id="itens" class="col s12 m7">
-        <?php foreach($itens as $item): ?>
+        <?php foreach($data as $item): ?>
             <div class="card horizontal">
                 <div class="card-image">
                     <img src="public/image/<?= $item -> getImage()?>">

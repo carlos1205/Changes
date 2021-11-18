@@ -1,9 +1,8 @@
 <?php 
     require_once "header.php";
 
-    $item = ItemService::getInstance() -> getItemWithId($_SESSION['id_item']);
-    $types = TypeService::getInstance() -> getTypes();
-    unset($_SESSION['id_item']);
+    $item = $data[0];
+    $types = $data[1];
 ?>
 <section>
 <div class="row">
@@ -36,7 +35,7 @@
     </div>
     <div class="row">
         <div class="card col s6 offset-s3 center">
-            <h2 class="red-text text-lighten-2" >Alterar Item</h2>
+            <h2 class="red-text text-lighten-2" >Alterar</h2>
             <form class="row" action="http://<?=$_SERVER['SERVER_NAME']?>/item/<?= $item -> getId()?>/edit" method="POST" enctype="multipart/form-data">
                 <div class="input-field col s8 offset-s2">
                     <input id="nome" name="itemNome" type="text" value="<?= $item -> getName()?>"/>
