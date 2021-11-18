@@ -2,6 +2,7 @@
     require_once "header.php";
 ?>
 <section class="container">
+    <h4>Itens:</h4>
     <div id="itens" class="col s12 m7">
         <?php foreach($data as $item): ?>
             <div class="card horizontal">
