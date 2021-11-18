@@ -36,11 +36,11 @@
             }
 
             $idUser = $_SESSION['user_id'];
-            $query = "UPDATE change_item SET name = '${name}', description = '${description}', price = '${preco}', image = '${imgName}', user_id = '${idUser}', type_id = '${type}') WHERE id = '${id}' AND user_id = '${idUser}'";
+            $query = "UPDATE change_item SET name = '${name}', description = '${description}', price = '${preco}', image = '${imgName}', user_id = '${idUser}', type_id = '${type}' WHERE id = '${id}' AND user_id = '${idUser}'";
             $res = self::execQuery($query);
     
             if($res){
-                $_SESSION['success_message'] = array("Item Alterado <br /> $query");
+                $_SESSION['success_message'] = array("Item Alterado");
                 $location = "http://".$_SERVER['SERVER_NAME']."/my-itens";
                 header("Location: $location");
             }

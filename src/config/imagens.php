@@ -16,10 +16,10 @@
         }
     
         public static function drop($image){
-            if(!self::exists($image)) return;
-
-            $file = (self::destiny()).basename($image);
-            unlink($file);
+            if(self::exists($image)){
+                $file = (self::destiny()).basename($image);
+                unlink($file);
+            }
         }
     
         public static function exists($image){
