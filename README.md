@@ -11,12 +11,10 @@ Para ambiente de produção não é recomendado o uso do usuário root para aces
 além disse é recomentadado também que os dados de acesso ao banco sejam colocados em um arquivo de configuração.
 
 ### Falta
-Infelizmente não tive tempo o suficiente para implementar o chat, e a busca de item. por pesquisa
+Infelizmente não tive tempo o suficiente para implementar o chat.
 
 ### Bugs
 O php não está com o encode configurado corretamente. Então provavelmente caracteres especiais não serão reconhecidos adequadamente.
- 
-Editar os itens vai gerar um bug, falta alterar as imagens para resolver.
 
 ### Creditos
 Esse projeto foi desenvolvido como parte da avaliação da disciplina de servidores web, da UTFPR - Campus Ponta Grossa. Sob a Orientação do Professor Diego Antunes.
